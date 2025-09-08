@@ -12,10 +12,6 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
-  experimental: {
-    // Disable strict mode to reduce TypeScript errors
-    forceSwcTransforms: true,
-  },
 }
 
 module.exports = nextConfig
