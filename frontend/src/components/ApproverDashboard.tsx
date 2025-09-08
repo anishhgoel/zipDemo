@@ -36,7 +36,7 @@ export default function ApproverDashboard({ user }: ApproverDashboardProps) {
       fetchAllRequests();
     }, 5000);
     return () => clearInterval(interval);
-  }, [user.id]);
+  }, [user.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchPendingApprovals = async () => {
     try {

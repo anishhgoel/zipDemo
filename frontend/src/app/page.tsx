@@ -8,7 +8,7 @@ import AdminDashboard from '@/components/AdminDashboard';
 import PaymentDashboard from '@/components/PaymentDashboard';
 
 export default function Home() {
-  const [currentUser, setCurrentUser] = useState<any>(null);
+  const [currentUser, setCurrentUser] = useState<{id: number, name: string, role: string, department_id?: number} | null>(null);
   const [activeTab, setActiveTab] = useState<'approvals' | 'payments'>('approvals');
 
   const renderDashboard = () => {

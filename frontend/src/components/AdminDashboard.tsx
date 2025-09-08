@@ -37,7 +37,7 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
       fetchPaymentStats();
     }, 10000);
     return () => clearInterval(interval);
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchAllRequests = async () => {
     try {
@@ -57,13 +57,13 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
       const response = await fetch('http://localhost:8000/payments');
       const data = await response.json();
       const payments = data.payments || [];
-      
-      const stats = payments.reduce((acc: any, payment: any) => {
-        acc[payment.payment_status] = (acc[payment.payment_status] || 0) + 1;
+
+      const stats = payments.reduce((acc: {pending: number, completed: number, failed: number, totalAmount: number}, payment: {payment_status: string, amount: number}) => {
+        acc[payment.payment_status as keyof typeof acc] = (acc[payment.payment_status as keyof typeof acc] || 0) + 1;
         acc.totalAmount += payment.amount;
         return acc;
       }, { pending: 0, completed: 0, failed: 0, totalAmount: 0 });
-      
+
       setPaymentStats(stats);
     } catch (error) {
       console.error('Error fetching payment stats:', error);

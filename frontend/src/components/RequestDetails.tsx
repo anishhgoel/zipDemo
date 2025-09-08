@@ -19,12 +19,12 @@ export default function RequestDetails({ requestId, onBack, userRole, userId, on
     // Poll for updates every 3 seconds when viewing details
     const interval = setInterval(fetchRequestDetails, 3000);
     return () => clearInterval(interval);
-  }, [requestId]);
+  }, [requestId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchRequestDetails = async () => {
     try {
       // Add cache busting to ensure fresh data
-      const response = await fetch(`http://192.168.105.1:8000/requests/${requestId}?t=${Date.now()}`);
+      const response = await fetch(`http://localhost:8000/requests/${requestId}?t=${Date.now()}`);
       const data = await response.json();
       setRequestData(data);
       
