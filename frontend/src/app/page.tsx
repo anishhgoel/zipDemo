@@ -6,9 +6,10 @@ import RequesterDashboard from '@/components/RequesterDashboard';
 import ApproverDashboard from '@/components/ApproverDashboard';
 import AdminDashboard from '@/components/AdminDashboard';
 import PaymentDashboard from '@/components/PaymentDashboard';
+import { User } from '@/types';
 
 export default function Home() {
-  const [currentUser, setCurrentUser] = useState<{id: number, name: string, role: string, department_id?: number} | null>(null);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [activeTab, setActiveTab] = useState<'approvals' | 'payments'>('approvals');
 
   const renderDashboard = () => {
@@ -51,7 +52,7 @@ export default function Home() {
       );
     }
 
-    const dashboards = {
+    const dashboards: { [key: string]: JSX.Element } = {
       requester: <RequesterDashboard user={currentUser} />,
       manager: <ApproverDashboard user={currentUser} />,
       legal: <ApproverDashboard user={currentUser} />,

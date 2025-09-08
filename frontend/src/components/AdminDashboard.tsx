@@ -2,23 +2,20 @@
 
 import { useState, useEffect } from 'react';
 import RequestDetails from './RequestDetails';
+import { User, Request, PaymentStats } from '@/types';
 
-interface User {
-  id: number;
-  name: string;
-  role: string;
-}
+// User interface moved to @/types
 
 interface AdminDashboardProps {
   user: User;
 }
 
 export default function AdminDashboard({ user }: AdminDashboardProps) {
-  const [requests, setRequests] = useState([]);
+  const [requests, setRequests] = useState<Request[]>([]);
   const [selectedRequest, setSelectedRequest] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<'all' | 'pending' | 'approved' | 'rejected'>('all');
-  const [paymentStats, setPaymentStats] = useState({ pending: 0, completed: 0, failed: 0, totalAmount: 0 });
+  const [paymentStats, setPaymentStats] = useState<PaymentStats>({ pending: 0, completed: 0, failed: 0, totalAmount: 0 });
   const [vendorSpending, setVendorSpending] = useState<Array<{
     name: string;
     total: number;
