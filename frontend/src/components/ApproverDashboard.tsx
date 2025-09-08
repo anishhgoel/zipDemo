@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import RequestDetails from './RequestDetails';
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = 'https://zipdemo.onrender.com';
 
 const ROLE_NAMES = {
   manager: 'Department Manager',

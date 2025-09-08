@@ -28,7 +28,7 @@ export default function RequesterDashboard({ user }: RequesterDashboardProps) {
 
   const fetchMyRequests = async () => {
     try {
-      const response = await fetch('http://localhost:8000/requests');
+      const response = await fetch('https://zipdemo.onrender.com/requests');
       const data = await response.json();
       // Filter requests by this user
       const myRequests = data.requests.filter((req: any) => req.requester_id === user.id);

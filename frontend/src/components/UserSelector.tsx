@@ -24,7 +24,7 @@ export default function UserSelector({ onUserSelect }: UserSelectorProps) {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch('http://192.168.105.1:8000/users');
+      const response = await fetch('https://zipdemo.onrender.com/users');
       const data = await response.json();
       setUsers(data.users);
     } catch (error) {

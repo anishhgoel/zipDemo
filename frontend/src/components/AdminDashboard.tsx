@@ -38,7 +38,7 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
 
   const fetchAllRequests = async () => {
     try {
-      const response = await fetch('http://localhost:8000/requests');
+      const response = await fetch('https://zipdemo.onrender.com/requests');
       const data = await response.json();
       setRequests(data.requests || []);
       calculateVendorSpending(data.requests || []);
@@ -51,7 +51,7 @@ export default function AdminDashboard({ user }: AdminDashboardProps) {
 
   const fetchPaymentStats = async () => {
     try {
-      const response = await fetch('http://localhost:8000/payments');
+      const response = await fetch('https://zipdemo.onrender.com/payments');
       const data = await response.json();
       const payments = data.payments || [];
 

@@ -42,7 +42,7 @@ export default function PaymentDashboard({ user }: PaymentDashboardProps) {
 
   const fetchPayments = async () => {
     try {
-      const response = await fetch('http://localhost:8000/payments');
+      const response = await fetch('https://zipdemo.onrender.com/payments');
       const data = await response.json();
       setPayments(data.payments);
     } catch (error) {
@@ -55,7 +55,7 @@ export default function PaymentDashboard({ user }: PaymentDashboardProps) {
   const processPayment = async (paymentId: number, status: 'completed' | 'failed') => {
     setProcessingId(paymentId);
     try {
-      const response = await fetch(`http://localhost:8000/payments/${paymentId}/process?processed_by=${user.id}&status=${status}`, {
+      const response = await fetch(`https://zipdemo.onrender.com/payments/${paymentId}/process?processed_by=${user.id}&status=${status}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

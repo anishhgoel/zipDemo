@@ -43,8 +43,8 @@ export default function RequestForm({ user, onSubmitSuccess }: RequestFormProps)
   const fetchVendorsAndDepartments = async () => {
     try {
       const [vendorsRes, departmentsRes] = await Promise.all([
-        fetch('http://localhost:8000/vendors'),
-        fetch('http://localhost:8000/departments')
+        fetch('https://zipdemo.onrender.com/vendors'),
+        fetch('https://zipdemo.onrender.com/departments')
       ]);
       
       setVendors((await vendorsRes.json()).vendors);
@@ -69,7 +69,7 @@ export default function RequestForm({ user, onSubmitSuccess }: RequestFormProps)
         requester_id: user.id,
       };
 
-      const response = await fetch('http://localhost:8000/requests', {
+      const response = await fetch('https://zipdemo.onrender.com/requests', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

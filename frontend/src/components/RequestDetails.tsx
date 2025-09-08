@@ -24,7 +24,7 @@ export default function RequestDetails({ requestId, onBack, userRole, userId, on
   const fetchRequestDetails = async () => {
     try {
       // Add cache busting to ensure fresh data
-      const response = await fetch(`http://localhost:8000/requests/${requestId}?t=${Date.now()}`);
+      const response = await fetch(`https://zipdemo.onrender.com/requests/${requestId}?t=${Date.now()}`);
       const data = await response.json();
       setRequestData(data);
       
