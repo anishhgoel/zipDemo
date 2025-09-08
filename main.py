@@ -15,7 +15,16 @@ app = FastAPI(title="Zip-like Procurement System", version="1.0.0")
 # Enable CORS for frontend - allow all origins for development
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins for development
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:3001", 
+        "http://localhost:3002",
+        "http://192.168.105.1:3000",
+        "http://192.168.105.1:3002",
+        "https://zip-demo-bice.vercel.app",
+        "https://zip-demo-git-main-anishgoel-berkeleyedus-projects.vercel.app",
+        "https://zip-demo-kdqpnje13-anishgoel-berkeleyedus-projects.vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
