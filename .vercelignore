@@ -7,12 +7,3 @@ procurement.db
 run_demo.sh
 README.md
 __pycache__/
-
-# Ignore root level package files (but keep frontend/package.json)
-package.json
-pnpm-lock.yaml
-node_modules/
-
-# Keep frontend files
-!frontend/
-!frontend/**
