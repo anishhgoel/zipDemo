@@ -1,0 +1,14 @@
+# Ignore backend files
+main.py
+database.py
+rules_engine.py
+requirements.txt
+procurement.db
+run_demo.sh
+README.md
+__pycache__/
+
+# Ignore root level package files
+package.json
+pnpm-lock.yaml
+node_modules/
